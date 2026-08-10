@@ -1,18 +1,13 @@
 class Solution {
     public long countFriendsPairings(int n) {
-
-        if (n <= 2)
+        return solve(n);
+    }
+    
+    private int solve(int n) {
+        if(n == 1|| n == 2) {
             return n;
-
-        long[] dp = new long[n + 1];
-
-        dp[1] = 1;
-        dp[2] = 2;
-
-        for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + (i - 1) * dp[i - 2];
+        } else {
+            return solve(n-1) + (n-1) * solve(n-2);
         }
-
-        return dp[n];
     }
 }
