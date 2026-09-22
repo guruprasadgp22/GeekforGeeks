@@ -1,7 +1,6 @@
 class Solution {
     public String findLongestWord(String s, List<String> d) {
-        // code here
-        String result = "";
+        int n = d.size();
         
         d.sort((a, b) -> {
             if(a.length() == b.length()) {
@@ -11,28 +10,35 @@ class Solution {
         });
         
         for(String str: d) {
-            if(subSequence(str, s)) {
-                if(result.length() < str.length() || (result.length() == str.length() && str.compareTo(result) < 0)) {
-                    return str;
-                }
+            int ans = longestCommonSubsequence(str, s);
+            
+            if(ans == str.length()) {
+                return str;
             }
         }
         
         return "";
     }
     
-    private boolean subSequence(String s1, String s2) {
-        int i = 0;
-        int j = 0;
+    private int longestCommonSubsequence(String s1, String s2) {
+        int m = s1.length();
+        int n = s2.length();
         
-        while(i < s1.length() && j < s2.length()) {
-            if(s1.charAt(i) == s2.charAt(j)) {
-                i++;
+        int[][] dp = new int[m+1][n+1];
+        
+        for(int i=m-1;i>=0;i--) {
+            for(int j=n-1;j>=0;j--) {
+                if(s1.charAt(i) == s2.charAt(j)) {
+                    dp[i][j] = 1 + dp[i+1][j+1];
+                } else {
+                    int skipI = dp[i+1][j];
+                    int skipJ = dp[i][j+1];
+                    
+                    dp[i][j] = Math.max(skipI, skipJ);
+                }
             }
-            j++;
         }
         
-        
-        return i == s1.length();
+        return dp[0][0];
     }
 }
