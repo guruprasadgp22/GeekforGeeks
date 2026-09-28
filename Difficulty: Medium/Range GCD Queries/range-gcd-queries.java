@@ -35,7 +35,7 @@ class SegmentTree {
     void update(int start, int end, int node, int index, int val) {
         if(start == end) {
             tree[node] = val;
-            return;
+            return; 
         }
         
         int mid = start + (end - start)/2;
