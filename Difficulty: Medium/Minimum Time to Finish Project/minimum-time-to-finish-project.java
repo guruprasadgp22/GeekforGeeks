@@ -1,50 +1,48 @@
-import java.util.*;
-
 class Solution {
     public int minTime(int[] duration, int[][] dependencies) {
         int n = duration.length;
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
-
-        int[] indegree = new int[n];
-
-        for (int[] dep : dependencies) {
-            int u = dep[0], v = dep[1];
-            adj.get(u).add(v);
-            indegree[v]++;
+        int[] inDegree = new int[n];
+        List<List<Integer>> adjMat = new ArrayList<>();
+        for(int i=0;i<n;i++) {
+            adjMat.add(new ArrayList<>());
         }
-
-        int[] finishTime = new int[n];
+        
+        for(int[] x: dependencies) {
+            int u = x[0];
+            int v = x[1];
+            adjMat.get(u).add(v);
+            inDegree[v]++;
+        }
+        
         Queue<Integer> queue = new LinkedList<>();
-
-        for (int i = 0; i < n; i++) {
-            if (indegree[i] == 0) {
-                finishTime[i] = duration[i];
+        int[] finishTime = new int[n];
+        for(int i=0;i<n;i++) {
+            if(inDegree[i] == 0) {
                 queue.add(i);
+                finishTime[i] = duration[i];
             }
         }
-
-        int processedCount = 0;
+        
+        int completed = 0;
         int ans = 0;
-
-        while (!queue.isEmpty()) {
+        
+        while(!queue.isEmpty()) {
             int u = queue.poll();
-            processedCount++;
             ans = Math.max(ans, finishTime[u]);
-
-            for (int v : adj.get(u)) {
-                finishTime[v] = Math.max(finishTime[v], finishTime[u] + duration[v]);
-                indegree[v]--;
-                if (indegree[v] == 0) {
+            completed++;
+            
+            for(int v: adjMat.get(u)) {
+                finishTime[v] = Math.max(finishTime[v], duration[v] + finishTime[u]);
+                inDegree[v]--;
+                if(inDegree[v] == 0){
                     queue.add(v);
                 }
             }
         }
-
-        if (processedCount != n) {
-            return -1; // cycle detected
+        
+        if(completed != n){
+            return -1;
         }
-
         return ans;
     }
 }
