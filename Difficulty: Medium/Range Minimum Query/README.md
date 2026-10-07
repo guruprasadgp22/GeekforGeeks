@@ -1,0 +1,10 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/range-minimum-query/1">Range Minimum Query</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 14pt;">Given an integer array <strong>arr[]</strong> and a 2D integer array <strong>queries[][] </strong>of size <strong>q × 2</strong>, process all the queries using 0-based indexing.</span></p>
+<p class="isSelectedEnd"><span style="font-size: 14pt;">Each query <span class="text-token-text-primary cursor-text rounded-sm" data-placeholder-token="true">[l, r]</span> asks for the minimum element present in the subarray <strong>arr<span class="text-token-text-primary cursor-text rounded-sm" data-placeholder-token="true">[l...r]</span></strong>.</span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong></span></p>
+<pre><span style="font-size: 14pt;"><strong>Input:</strong> arr[] = [1, 2, 3, 4], queries[][] = [[0, 2], [2, 3]]</span><br><span style="font-size: 14pt;"><strong>Output: </strong>[1, 3]</span><br><span style="font-size: 14pt;"><strong>Explanation:</strong>
+Query [0, 2]: The elements in arr[0...2] are [1, 2, 3]. The minimum element is 1.
+Query [2, 3]: The elements in arr[2...3] are [3, 4]. The minimum element is 3.</span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input:</strong> arr[] = [7, 2, 9, 4], queries[][] = [[1, 1], [0, 3]]</span><br><span style="font-size: 14pt;"><strong>Output: </strong>[2, 2]</span><br><span style="font-size: 14pt;"><strong>Explanation:</strong>
+Query [1, 1]: The subarray arr[1...1] contains only one element, 2. The minimum element is 2.
+Query [0, 3]: The elements in arr[0...3] are [7, 2, 9, 4]. The minimum element is 2.</span></pre>
+<p><span style="font-size: 14pt;"><strong>Constraints:<br></strong>1 ≤ arr.size() ≤ 10<sup>5<br></sup>1 ≤ queries.size() ≤ 10<sup>5<br></sup>1 ≤ arr[i] ≤ 10<sup>9<br></sup>0 ≤ l&nbsp;≤ r &lt; arr.size()</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Segment-Tree</code>&nbsp;<code>Advanced Data Structure</code>&nbsp;
