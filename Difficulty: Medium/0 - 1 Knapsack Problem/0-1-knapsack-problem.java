@@ -1,32 +1,30 @@
 class Solution {
-    int dp[][];
+    int n;
+    int[][] dp;
     public int knapsack(int W, int val[], int wt[]) {
-        // code here
-        int n = val.length;
-        dp = new int[n+1][W+1];
-        for(int i=0;i<n+1;i++) {
-            Arrays.fill(dp[i], -1);
+        n = val.length;
+        dp = new int[n][W+1];
+        for(int[] x: dp) {
+            Arrays.fill(x, -1);
         }
-        
-        return solve(val, wt, W, n-1);
+        return solve(0, W, val, wt);
     }
     
-    private int solve(int[] val, int[] wt, int W, int n) {
-        if(n < 0 || W ==  0) {
+    private int solve(int i, int W, int[] val, int[] wt) {
+        if(i >= n || W == 0) {
             return 0;
         }
         
-        if(dp[n][W] != -1) {
-            return dp[n][W];
+        if(dp[i][W] != -1) {
+            return dp[i][W];
         }
         
-        if(wt[n] <= W) {
-            int take = val[n] + solve(val, wt, W - wt[n], n-1);
-            int skip = solve(val, wt, W, n-1);
-            
-            return dp[n][W] =  Math.max(skip, take);
-        } else {
-            return dp[n][W] = solve(val, wt, W, n-1);
+        int skip = solve(i+1, W, val, wt);
+        int take = 0;
+        if(wt[i] <= W) {
+            take = val[i] + solve(i+1, W - wt[i], val, wt);
         }
+        
+        return dp[i][W] = Math.max(skip, take);
     }
 }
