@@ -1,47 +1,80 @@
 class Solution {
-    int[] par, sz;
-
-    int find(int x) {
-        while (par[x] != x) {
-            par[x] = par[par[x]];      // path compression (iterative, no recursion)
-            x = par[x];
-        }
-        return x;
-    }
-
-    public ArrayList<Integer> maximumWeight(int n, int[][] edges, int[] queries) {
-        par = new int[n + 1];          // nodes are 1..n
-        sz = new int[n + 1];
-        for (int i = 1; i <= n; i++) { par[i] = i; sz[i] = 1; }
-
-        int[][] es = edges.clone();
-        Arrays.sort(es, (a, b) -> Integer.compare(a[2], b[2]));
-
-        int q = queries.length;
-        Integer[] order = new Integer[q];
-        for (int i = 0; i < q; i++) order[i] = i;
-        Arrays.sort(order, (a, b) -> Integer.compare(queries[a], queries[b]));
-
-        int[] res = new int[q];
-        long paths = 0;
-        int e = 0;
-
-        for (int idx : order) {
-            while (e < es.length && es[e][2] <= queries[idx]) {
-                int a = find(es[e][0]), b = find(es[e][1]);
-                if (a != b) {
-                    paths += (long) sz[a] * sz[b];               // new paths across the two parts
-                    if (sz[a] < sz[b]) { int t = a; a = b; b = t; }
-                    par[b] = a;                                  // union by size
-                    sz[a] += sz[b];
-                }
-                e++;
-            }
-            res[idx] = (int) paths;                              // store in original position
-        }
-
-        ArrayList<Integer> ans = new ArrayList<>();
-        for (int x : res) ans.add(x);
-        return ans;
-    }
-}
+	int[] parent;
+	int[] rank;
+	int[] size;
+	public ArrayList<Integer> maximumWeight(int n, int[][] edges, int[] queries) {
+		parent = new int[n + 1];
+		rank = new int[n + 1];
+		size = new int[n + 1];
+		for (int i = 0; i <= n; i++) {
+			parent[i] = i;
+			size[i] = 1;
+		}
+		
+		Arrays.sort(edges, (a, b) -> {
+			return Integer.compare(a[2], b[2]);
+		});
+		
+		int q = queries.length;
+		int[][] query = new int[q][2];
+		for (int i = 0; i<q; i++) {
+			query[i][0] = queries[i];
+			query[i][1] = i;
+		}
+		
+		Arrays.sort(query, (a, b) -> {
+			return Integer.compare(a[0], b[0]);
+		});
+		int[] ans = new int[q];
+		
+		int j = 0;
+		int paths = 0;
+		for (int i = 0; i<q; i++) {
+			int w = query[i][0];
+			int idx = query[i][1];
+			while (j < edges.length && edges[j][2] <= w) {
+				paths += union(edges[j][0], edges[j][1]);
+				j++;
+			}
+			ans[idx] = paths;
+		}
+		
+		ArrayList<Integer> result = new ArrayList<>();
+		for (int ele: ans) {
+			result.add(ele);
+		}
+		
+		return result;
+	}
+	
+	private int union(int x, int y) {
+		int parentX = find(x);
+		int parentY = find(y);
+		
+		if (parentX == parentY) {
+			return 0;
+		}
+		
+		int paths = size[parentX] * size[parentY];
+		if (rank[parentX] == rank[parentY]) {
+			parent[parentY] = parentX;
+			rank[parentX]++;
+			size[parentX] += size[parentY];
+		} else if (rank[parentX] > rank[parentY]) {
+			parent[parentY] = parentX;
+			size[parentX] += size[parentY];
+		} else {
+			parent[parentX] = parentY;
+			size[parentY] += size[parentX];
+		}
+		return paths;
+	}
+	
+	private int find(int x) {
+		if (x == parent[x]) {
+			return x;
+		}
+		
+		return find(parent[x]);
+	}
+};
