@@ -1,23 +1,34 @@
 class Solution {
     public int getMinimumDays(String s, int[] p) {
         char[] arr = s.toCharArray();
-        int n = arr.length;
-
-        int bad = 0;
-        for (int i = 0; i + 1 < n; i++) {
-            if (arr[i] == arr[i + 1]) bad++;
+        int sameChar = 0;
+        for(int i=0;i<arr.length-1;i+=1) {
+            if(arr[i] == arr[i+1]) {
+                sameChar++;
+            }
         }
-        if (bad == 0) return 0;                       // already valid
 
-        for (int day = 0; day < n; day++) {
-            int idx = p[day];
-
-            if (idx > 0 && arr[idx - 1] != '?' && arr[idx - 1] == arr[idx]) bad--;
-            if (idx + 1 < n && arr[idx + 1] != '?' && arr[idx + 1] == arr[idx]) bad--;
-
+        if(sameChar == 0) {
+            return 0;
+        }
+        
+        int count = 0;
+        for(int i=0;i<p.length;i++) {
+            int idx = p[i];
+            if(idx - 1 >= 0 && arr[idx] == arr[idx-1]) {
+                sameChar--;
+            } 
+            if(idx + 1 < p.length && arr[idx] == arr[idx + 1]) {
+                sameChar--;
+            }
+            count++;
             arr[idx] = '?';
-            if (bad == 0) return day + 1;             // days are 1-indexed
+            
+            if(sameChar == 0) {
+                return count;
+            }
         }
-        return n;                                     // unreachable: all '?' means no bad pairs
+        
+        return -1;
     }
 }
