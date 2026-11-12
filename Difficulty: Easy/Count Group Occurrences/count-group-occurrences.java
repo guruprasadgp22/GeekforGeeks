@@ -1,18 +1,17 @@
 class Solution {
     int getCount(String s, int k) {
-        int[] groups = new int[26];
-
-        for (int i = 0; i < s.length(); i++) {
-            // a new group starts at index 0 or when the character changes
-            if (i == 0 || s.charAt(i) != s.charAt(i - 1)) {
-                groups[s.charAt(i) - 'a']++;
+        int[] freq = new int[26];
+        for(int i=0;i<s.length();i++) {
+            if(i == 0 || (s.charAt(i) != s.charAt(i-1))) {
+                freq[s.charAt(i)-'a']++;
             }
         }
-
-        int result = 0;
-        for (int g : groups) {
-            if (g == k) result++;
+        int count = 0;
+        for(int ele: freq) {
+            if(ele == k) {
+                count++;
+            }
         }
-        return result;
+        return count;
     }
 }
