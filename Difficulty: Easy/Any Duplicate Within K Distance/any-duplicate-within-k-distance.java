@@ -1,17 +1,15 @@
 class Solution {
     public boolean checkWithinK(int[] arr, int k) {
-         HashSet<Integer> window = new HashSet<>();
+        HashSet<Integer> seen = new HashSet<>();
         for(int i=0;i<arr.length;i++) {
-            if(window.contains(arr[i])) {
+            if(seen.contains(arr[i])) {
                 return true;
             }
-            window.add(arr[i]);
-            if(window.size() > k) {
-                window.remove(arr[i-k]);
+            seen.add(arr[i]);
+            if(seen.size() > k) {
+                seen.remove(arr[i-k]);
             }
         }
-        
         return false;
-        
     }
 }
