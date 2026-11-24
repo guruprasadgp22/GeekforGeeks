@@ -1,25 +1,28 @@
 class Solution {
     public char posInfinite(String s, int pos) {
-        long[] len = new long[64];
-        len[0] = s.length();
-        int k = 0;
-        while (len[k] < pos) {                 // find the first level that covers pos
-            len[k + 1] = 2 * len[k] + (k + 1);
-            k++;
+        int len = s.length();
+        int i = 1;
+        
+        while(len < pos) {
+            len = len * 2 + i;
+            i++;
         }
-
-        long p = pos;
-        while (k > 0) {
-            long m = len[k - 1];
-            if (p <= m) {
-                // in the left copy: same position, one level down
-            } else if (p <= m + k) {
-                return '$';                    // in the block of k dollars
+        
+        i--;
+        
+        while(pos > s.length()) {
+            int oldLen = (len - i)/2;
+            if(pos <= oldLen) {
+                len = oldLen;
+            } else if(pos <= oldLen + i) {
+                return '$';
             } else {
-                p = 2 * m + k + 1 - p;         // mirror into the left copy
+                int revPos = pos - oldLen - i;
+                pos = oldLen - revPos + 1;
+                len = oldLen;
             }
-            k--;
-        }
-        return s.charAt((int) p - 1);
+            i--;
+        }   
+        return s.charAt(pos - 1);
     }
 }
