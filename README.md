@@ -7,12 +7,13 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | Difficulty | Count |
 |------------|-------|
 | Easy | 0 |
-| Medium | 1 |
+| Medium | 2 |
 | Hard | 0 |
-| **Total** | **1** |
+| **Total** | **2** |
 
 ## Solutions
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 1 | [Next Permutation5226](https://www.geeksforgeeks.org/problems/next-permutation5226/1) | Medium | [Solution](Medium/next-permutation5226.java) |
+| 2 | [Factorials Of Large Numbers2508](https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1) | Medium | [Solution](Medium/factorials-of-large-numbers2508.java) |
