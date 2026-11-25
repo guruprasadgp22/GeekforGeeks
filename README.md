@@ -6,10 +6,10 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 
 | Difficulty | Count |
 |------------|-------|
-| Easy | 0 |
+| Easy | 1 |
 | Medium | 2 |
 | Hard | 0 |
-| **Total** | **2** |
+| **Total** | **3** |
 
 ## Solutions
 
@@ -17,3 +17,4 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 |---|---------|------------|----------|
 | 1 | [Next Permutation5226](https://www.geeksforgeeks.org/problems/next-permutation5226/1) | Medium | [Solution](Medium/next-permutation5226.java) |
 | 2 | [Factorials Of Large Numbers2508](https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1) | Medium | [Solution](Medium/factorials-of-large-numbers2508.java) |
+| 3 | [Smallest Subarray With Sum Greater Than X5651](https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1) | Easy | [Solution](Easy/smallest-subarray-with-sum-greater-than-x5651.java) |
