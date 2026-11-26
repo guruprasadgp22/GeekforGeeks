@@ -7,9 +7,9 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | Difficulty | Count |
 |------------|-------|
 | Easy | 2 |
-| Medium | 3 |
+| Medium | 4 |
 | Hard | 0 |
-| **Total** | **5** |
+| **Total** | **6** |
 
 ## Solutions
 
@@ -20,3 +20,4 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | 3 | [Smallest Subarray With Sum Greater Than X5651](https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1) | Easy | [Solution](Easy/smallest-subarray-with-sum-greater-than-x5651.java) |
 | 4 | [Smallest Subarray With Sum Greater Than X5651](https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1) | Easy | [Solution](Easy/smallest-subarray-with-sum-greater-than-x5651.java) |
 | 5 | [Rotate By 90 Degree 1587115621](https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1) | Medium | [Solution](Medium/rotate-by-90-degree-1587115621.java) |
+| 6 | [Rotate By 90 Degree 1587115621](https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1) | Medium | [Solution](Medium/rotate-by-90-degree-1587115621.java) |
