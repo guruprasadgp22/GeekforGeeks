@@ -7,9 +7,9 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | Difficulty | Count |
 |------------|-------|
 | Easy | 2 |
-| Medium | 4 |
+| Medium | 5 |
 | Hard | 0 |
-| **Total** | **6** |
+| **Total** | **7** |
 
 ## Solutions
 
@@ -21,3 +21,4 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | 4 | [Smallest Subarray With Sum Greater Than X5651](https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1) | Easy | [Solution](Easy/smallest-subarray-with-sum-greater-than-x5651.java) |
 | 5 | [Rotate By 90 Degree 1587115621](https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1) | Medium | [Solution](Medium/rotate-by-90-degree-1587115621.java) |
 | 6 | [Rotate By 90 Degree 1587115621](https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1) | Medium | [Solution](Medium/rotate-by-90-degree-1587115621.java) |
+| 7 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
