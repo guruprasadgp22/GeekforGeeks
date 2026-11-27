@@ -7,9 +7,9 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | Difficulty | Count |
 |------------|-------|
 | Easy | 2 |
-| Medium | 5 |
+| Medium | 6 |
 | Hard | 2 |
-| **Total** | **9** |
+| **Total** | **10** |
 
 ## Solutions
 
@@ -24,3 +24,4 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | 7 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
 | 8 | [Geek And Her Destination  145724](https://www.geeksforgeeks.org/problems/geek-and-her-destination--145724/1) | Hard | [Solution](Hard/geek-and-her-destination-145724.java) |
 | 9 | [Geek And Her Destination  145724](https://www.geeksforgeeks.org/problems/geek-and-her-destination--145724/1) | Hard | [Solution](Hard/geek-and-her-destination-145724.java) |
+| 10 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
