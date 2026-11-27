@@ -5,28 +5,34 @@ Tags: N/A
 URL: https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1
 */
 
-class Solution {
-  public ArrayList<Integer> countVowels(String s, int[][] queries) {
-    int n = s.length();
-    int[] prefix = new int[n];
-    prefix[0] = isVowel(s.charAt(0)) ? 1 : 0;
-    for (int i = 1; i < n; i++) {
-      char ch = s.charAt(i);
-      boolean ans = isVowel(ch);
-      prefix[i] = prefix[i - 1] + (ans ? 1 : 0);
+tree[i] = tree[2*i+1] + tree[2*i+2];
     }
-
-    ArrayList<Integer> result = new ArrayList<>();
-    for (int i = 0; i < queries.length; i++) {
-      int src = queries[i][0];
-      int dst = queries[i][1];
-      int res = prefix[dst] - (src > 0 ? prefix[src - 1] : 0);
-      result.add(res);
+    
+    int query(int left, int right) {
+        return query(0, 0, n-1, left, right);
     }
-    return result;
-  }
-
-  private boolean isVowel(char ch) {
-    return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'u' || ch == 'o';
-  }
+    
+    private int query(int i, int start, int end, int left, int right) {
+        if(left > end || right < start) {
+            return 0;
+        }
+        
+        if(left <= start && right >= end) {
+            return tree[i];
+        }
+        
+        int mid = start + (end - start)/2;
+        
+        return query(2*i+1, start, mid, left, right) + query(2*i+2, mid+1, end, left, right);
+    }
+    
+    private boolean checkVowels(char ch) {
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
 }
+class Solution {
+    public ArrayList<Integer> countVowels(String s, int[][] queries) {
+        SegmentTree st = new SegmentTree(s);
+        ArrayList<Integer> res = new ArrayList<>();
+        
+        for(int x[]: queries) {
