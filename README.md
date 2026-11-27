@@ -6,10 +6,10 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 
 | Difficulty | Count |
 |------------|-------|
-| Easy | 2 |
+| Easy | 3 |
 | Medium | 8 |
 | Hard | 2 |
-| **Total** | **12** |
+| **Total** | **13** |
 
 ## Solutions
 
@@ -27,3 +27,4 @@ My GeeksforGeeks solutions - automatically synced with GFG Sync
 | 10 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
 | 11 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
 | 12 | [Range Vowel Count Queries Static](https://www.geeksforgeeks.org/problems/range-vowel-count-queries-static/1) | Medium | [Solution](Medium/range-vowel-count-queries-static.java) |
+| 13 | [Count Number Of Edges In An Undirected Graph](https://www.geeksforgeeks.org/problems/count-number-of-edges-in-an-undirected-graph/1) | Easy | [Solution](Easy/count-number-of-edges-in-an-undirected-graph.java) |
